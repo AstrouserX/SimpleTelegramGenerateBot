@@ -15,17 +15,10 @@ tokenizer, model = txt_generate_conf()
 
 @dp.message_handler(lambda message: message.text)
 async def start(message: aiogram.types.Message):
-   #txt_value = []
-   #for i in range(10):
+
    text = message.text
    generated_text = text_gen(text, 80)
-      #txt_value.append(generated_text)
    await message.answer(generated_text)
-   #with open('values.txt', 'w', encoding="utf-8") as f:
-      #for i in txt_value:
-         #f.write(f"{i}\n")
-   #await message.answer_document(open(r'values.txt', 'rb'))
-
 
 #keep_alive()
 aiogram.executor.start_polling(dp, skip_updates=True)
